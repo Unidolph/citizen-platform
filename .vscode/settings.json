@@ -1,0 +1,8 @@
+{
+  "css.validate": false,
+  "cSpell.words": ["Avenir"],
+  "editor.formatOnSave": true,
+  "tailwindCSS.experimental.classRegex": [
+    ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  ]
+}
