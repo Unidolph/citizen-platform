@@ -14,7 +14,7 @@ backend/
 │   │   └── db.ts
 │   ├── models/
 │   │   ├── Project.ts
-│   │   └── User.ts
+│   │   └── user.ts
 │   ├── controllers/
 │   │   ├── projectController.ts
 │   │   └── authController.ts
