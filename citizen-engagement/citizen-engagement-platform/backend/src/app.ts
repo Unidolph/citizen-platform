@@ -7,7 +7,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 const app = express();
-const PORT = process.env.PORT || 10000;
+const PORT = process.env.PORT || 10000; // use Render's assigned port if available
 const MONGO_URI = process.env.MONGO_URI as string;
 
 // Middleware
@@ -39,6 +39,7 @@ app.get("/", (_req, res) => {
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`✅ Server is running on port ${PORT}`);
 });
+
 
 function then(arg0: () => void) {
   throw new Error('Function not implemented.');
