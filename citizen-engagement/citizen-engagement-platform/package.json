@@ -4,11 +4,25 @@
     "dotgitignore": "^2.1.0"
   },
 
+
+ "name": "citizen-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Citizen Engagement Platform – unified frontend and backend monorepo",
+  "workspaces": [
+    "backend",
+    "citizen-frontend"
+  ],
   "scripts": {
-  "dev": "vite",
-  "build": "tsc -b && vite build",
-  "preview": "vite preview"
+    "install:all": "pnpm install --recursive",
+    "build": "pnpm --filter ./backend... run build && pnpm --filter ./citizen-frontend... run build",
+    "start": "pnpm --filter ./backend... run start",
+    "dev": "pnpm --filter ./backend... run dev && pnpm --filter ./citizen-frontend... run dev",
+    "lint": "pnpm --recursive run lint",
+    "clean": "pnpm --recursive exec rm -rf dist node_modules"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "license": "MIT"
 }
-
-}
-
