@@ -36,9 +36,9 @@ app.get("/", (_req, res) => {
   res.json({ message: "Citizen Engagement API is running 🚀" });
 });
 
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`✅ Server is running on port ${PORT}`);
-});
+// app.listen(PORT, "0.0.0.0", () => {
+//   console.log(`✅ Server is running on port ${PORT}`);
+// });
 
 
 function then(arg0: () => void) {
