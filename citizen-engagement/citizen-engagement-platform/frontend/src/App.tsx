@@ -1,8 +1,8 @@
-
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProjectedRoute';
 import Navbar from './components/Navbar';
+import Landing from './pages/Landing';
 
 // Pages
 import Login from './pages/Login';
@@ -20,8 +20,11 @@ function App() {
         <Navbar />
 
         <Routes>
+          {/* Show landing page at root */}
+          <Route path="/" element={<Landing />} />
+
           {/* Public routes */}
-          <Route path="/" element={<Login />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
 
           {/* Protected routes */}
@@ -37,20 +40,19 @@ function App() {
           <Route
             path="/admin"
             element={
-              <ProtectedRoute>
+              <ProtectedRoute adminOnly>
                 <AdminDashboard />
               </ProtectedRoute>
             }
           />
 
           <Route
-             path="/chat"
-  element={
-    <ProtectedRoute>
-      <ChatBox room="general" />
-    </ProtectedRoute>
-  }
-
+            path="/chat"
+            element={
+              <ProtectedRoute>
+                <ChatBox room="general" />
+              </ProtectedRoute>
+            }
           />
         </Routes>
       </BrowserRouter>

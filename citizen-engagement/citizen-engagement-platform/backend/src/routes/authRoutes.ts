@@ -10,6 +10,11 @@ router.post('/signup', async (req, res) => {
   if (role === 'admin' && adminId !== 'SPECIAL_ADMIN_ID') {
     return res.status(403).json({ message: 'Invalid admin ID' });
   }
+  // Check for existing user
+  const existingUser = await User.findOne({ username });
+  if (existingUser) {
+    return res.status(409).json({ message: 'Username already exists' });
+  }
   const hashedPassword = await bcrypt.hash(password, 10);
   try {
     const user = new User({ username, password: hashedPassword, role, adminId });
